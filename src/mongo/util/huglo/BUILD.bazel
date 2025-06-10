@@ -1,0 +1,20 @@
+load("//bazel:mongo_src_rules.bzl", "mongo_cc_library", "mongo_cc_unit_test")
+
+package(default_visibility = ["//visibility:public"])
+
+mongo_cc_library(
+    name = "huglo",
+    srcs = ["huglo.cpp"],
+    hdrs = ["huglo.h"],
+    deps = [
+        "//src/mongo:base",
+    ],
+)
+
+
+mongo_cc_unit_test(
+    name = "huglo_test",
+    srcs = ["huglo_test.cpp"],
+    deps = [":huglo"],
+)
+
