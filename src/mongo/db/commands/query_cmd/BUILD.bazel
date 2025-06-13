@@ -52,6 +52,7 @@ mongo_cc_library(
         "//src/mongo/db:service_context",  # TODO(SERVER-93876): Remove.
         "//src/mongo/db/query/write_ops:write_ops_parsers",
         "//src/mongo/s:common_s",
+        "//src/mongo/util/huglo",
     ],
 )
 
