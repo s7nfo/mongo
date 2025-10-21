@@ -131,6 +131,7 @@
 #include "mongo/util/decorable.h"
 #include "mongo/util/fail_point.h"
 #include "mongo/util/future.h"
+#include "mongo/util/huglo/huglo.h"
 #include "mongo/util/intrusive_counter.h"
 #include "mongo/util/serialization_context.h"
 #include "mongo/util/str.h"
@@ -606,6 +607,8 @@ public:
          */
         void run(OperationContext* opCtx, rpc::ReplyBuilderInterface* replyBuilder) override {
             CommandHelpers::handleMarkKillOnClientDisconnect(opCtx);
+            // Invoke the Huglo test function to ensure the new library links in query paths.
+            huglo::sayHello();
 
             const BSONObj& cmdObj = _request.body;
 
